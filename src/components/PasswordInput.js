@@ -13,6 +13,7 @@ class PasswordInput extends React.Component {
     render() {
 
         let { goodPasswordPrinciples } = this.props;
+        let { password } = this.state;
 
         return (
             <Container>
@@ -21,7 +22,7 @@ class PasswordInput extends React.Component {
                         <PasswordField />
                     </Col>
                     <Col md={4}>
-                        <StrengthMeter principles={goodPasswordPrinciples} />
+                        <StrengthMeter principles={goodPasswordPrinciples} password={password}/>
                     </Col>
                 </Row>
             </Container>
