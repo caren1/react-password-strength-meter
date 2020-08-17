@@ -27,7 +27,7 @@ class PrinciplesProgress extends React.Component {
     }
 
     render() {
-        return (<ProgressBar now={this.satisfiedPercent()} bsStyle={this.progressColor()}/>)
+        return (<ProgressBar now={this.satisfiedPercent()} variant={this.progressColor()}/>)
     }
 }
 
