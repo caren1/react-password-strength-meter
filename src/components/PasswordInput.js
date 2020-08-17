@@ -7,7 +7,7 @@ class PasswordInput extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = { password: 'mwhkz1$'}
+        this.state = { password: ''}
 
         this.changePassword = this.changePassword.bind(this)
     }
@@ -25,7 +25,7 @@ class PasswordInput extends React.Component {
             <Container>
                 <Row>
                     <Col md={8}>
-                        <PasswordField password={password} onPasswordChange={this.changePassword}/>
+                        <PasswordField password={password} onPasswordChange={this.changePassword} principles={goodPasswordPrinciples}/>
                     </Col>
                     <Col md={4}>
                         <StrengthMeter principles={goodPasswordPrinciples} password={password}/>
