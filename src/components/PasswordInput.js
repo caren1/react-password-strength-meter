@@ -1,8 +1,13 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
+import PasswordField from '../components/PasswordField'
+import StrengthMeter from '../components/StrengthMeter'
 
 class PasswordInput extends React.Component {
     render() {
+
+        let { goodPasswordPrinciples } = this.props;
+
         return (
             <Grid>
                 <Row>
@@ -10,10 +15,30 @@ class PasswordInput extends React.Component {
                         <PasswordField />
                     </Col>
                     <Col md={4}>
-                        <StrengthMeter />
+                        <StrengthMeter principles={goodPasswordPrinciples} />
                     </Col>
                 </Row>
             </Grid>
         );
     }
+}
+
+const SPECIAL_CHARS_REGEX = /[^A-Za-z0-9]/
+const DIGIT_REGEX = /[0-9]/
+
+PasswordInput.defaultProps = {
+    goodPasswordPrinciples : [
+        {
+            label: '6+ characters',
+            predicate: password => password.length >= 6
+        },
+        {
+            label: 'with at least one digit',
+            predicate: password => DIGIT_REGEX.match(password) !== null
+        },
+        {
+            label: 'with at least one special character',
+            predictae: password => SPECIAL_CHARS_REGEX.match(password) !== null
+        }
+    ]
 }
