@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col, Panel } from 'react-bootstrap'
+import { Card } from 'react-bootstrap/';
 
 class StrengthMeter extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class StrengthMeter extends React.Component {
         let { principles } = this.props;
         
         return (
-            <Panel>
+            <Card>
                 <ul>
                     {principles.map(principle => 
                         <li>
@@ -17,7 +17,9 @@ class StrengthMeter extends React.Component {
                         </li>
                     )}
                 </ul>
-            </Panel>
+            </Card>
         )
     }
 }
+
+export default StrengthMeter

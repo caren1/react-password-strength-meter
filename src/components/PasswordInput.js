@@ -1,15 +1,21 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import PasswordField from '../components/PasswordField'
 import StrengthMeter from '../components/StrengthMeter'
 
 class PasswordInput extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.state = { password: ''}
+    }
+
     render() {
 
         let { goodPasswordPrinciples } = this.props;
 
         return (
-            <Grid>
+            <Container>
                 <Row>
                     <Col md={8}>
                         <PasswordField />
@@ -18,7 +24,7 @@ class PasswordInput extends React.Component {
                         <StrengthMeter principles={goodPasswordPrinciples} />
                     </Col>
                 </Row>
-            </Grid>
+            </Container>
         );
     }
 }
@@ -42,3 +48,5 @@ PasswordInput.defaultProps = {
         }
     ]
 }
+
+export default PasswordInput
