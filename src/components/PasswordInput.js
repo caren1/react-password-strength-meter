@@ -7,7 +7,7 @@ class PasswordInput extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = { password: 'asd1ZXCASD'}
+        this.state = { password: 'mwhkz1$'}
     }
 
     render() {
