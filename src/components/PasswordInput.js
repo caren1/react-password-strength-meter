@@ -7,7 +7,7 @@ class PasswordInput extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = { password: ''}
+        this.state = { password: 'asd1ZXCASD'}
     }
 
     render() {
@@ -41,11 +41,11 @@ PasswordInput.defaultProps = {
         },
         {
             label: 'with at least one digit',
-            predicate: password => DIGIT_REGEX.match(password) !== null
+            predicate: password => password.match(DIGIT_REGEX) !== null
         },
         {
             label: 'with at least one special character',
-            predictae: password => SPECIAL_CHARS_REGEX.match(password) !== null
+            predicate: password => password.match(SPECIAL_CHARS_REGEX) !== null
         }
     ]
 }
