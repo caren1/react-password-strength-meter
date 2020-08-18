@@ -1,14 +1,15 @@
 import React from 'react'
 import classNames from 'classnames';
 
-const PrinciplesList = ({ password, principles }) => {
+class PrinciplesList extends React.Component {
 
-    const principleSatisfied = (principle) => {
+    principleSatisfied(principle) {
+        let { password } = this.props
         return principle.predicate(password)
     }
 
-    const principleClass = (principle) => {
-        let satisfied = principleSatisfied(principle)
+    principleClass(principle) {
+        let satisfied = this.principleSatisfied(principle)
 
         return classNames({
             ["text-success"] : satisfied,
@@ -16,17 +17,21 @@ const PrinciplesList = ({ password, principles }) => {
         })
     }
 
-    return (
+    render() {
+        let { principles } = this.props;
+        
+        return (
         <ul>
              {principles.map(principle => 
-                <li className={principleClass(principle)} key={principle.label}>
+                <li className={this.principleClass(principle)} key={principle.label}>
                     <small>
                      {principle.label}
                     </small>
                 </li>
             )}
         </ul>
-    )
+        )
+    }
 }
 
 export default PrinciplesList

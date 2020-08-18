@@ -1,21 +1,21 @@
 import React from 'react'
 import PrinciplesList from './PrinciplesList'
-import { Card } from 'react-bootstrap/';
 import PrinciplesProgress from './PrinciplesProgress';
+import { Card } from 'react-bootstrap/';
 
-
-class StrengthMeter extends React.Component {
-
-
-    render(){
-        return (
-            <Card>
-                <PrinciplesProgress {...this.props}/>
-                <h5>A good password is:</h5>
-                <PrinciplesList  {...this.props} />
-            </Card>
-        )
-    }
+const StrengthMeter = ({ password, principles, satisfiedPercent }) => {
+    
+    // console.log(principles);
+    return (
+        <Card>
+            {/* <PrinciplesProgress {...props} /> */}
+            <PrinciplesProgress satisfiedPercent={satisfiedPercent}/>
+            <h5>A good password is:</h5>
+            {/* <PrinciplesList  {...props} /> */}
+            <PrinciplesList  password={password} principles={principles}/>
+        </Card>
+    )
 }
+
 
 export default StrengthMeter

@@ -1,23 +1,11 @@
 import React from 'react'
 import { ProgressBar } from 'react-bootstrap/';
-import classNames from 'classnames';
+import classNames from 'classnames'
 
+const PrinciplesProgress = ({ satisfiedPercent }) => {
 
-
-class PrinciplesProgress extends React.Component {
-
-    satisfiedPercent() {
-        let { principles, password } = this.props;
-
-        let satisfiedCount = principles.map(p => p.predicate(password))
-        .reduce((count, satisfied) => count + (satisfied ? 1 : 0), 0);
-
-        let principlesCount = principles.length
-        return ( satisfiedCount / principlesCount ) * 100.0
-    }
-
-    progressColor() {
-        let percentage = this.satisfiedPercent()
+    const progressColor = () => {
+        let percentage = satisfiedPercent
 
         return classNames({
             danger: (percentage < 33.4),
@@ -26,9 +14,7 @@ class PrinciplesProgress extends React.Component {
         })
     }
 
-    render() {
-        return (<ProgressBar now={this.satisfiedPercent()} variant={this.progressColor()}/>)
-    }
+    return (<ProgressBar animated now={satisfiedPercent} variant={progressColor()}/>)
 }
 
 export default PrinciplesProgress
